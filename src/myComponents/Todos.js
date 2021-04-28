@@ -4,12 +4,14 @@ import {useState} from 'react'
 
 export const Todos = (props) => {
     return (
-        <div className="container text-center">
+        <div className="container">
             <div className="row">
                 <h3 className="my-3">Todo List</h3>
-                {props.todos.map((todo)=>{
-                    return <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete}/>
-                })}
+                {props.todos.length===0? "No todos to display": 
+                    props.todos.map((todo)=>{
+                        return <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete}/>
+                    })
+                }
             </div>
         </div>
     )
